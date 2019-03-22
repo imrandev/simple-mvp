@@ -6,5 +6,5 @@ import dagger.Module;
 @Module
 public abstract class MainViewModule {
     @Binds
-    abstract MainContract.View providesMainContractView(MainActivity mainActivity);
+    abstract MainContract.View bindMainView(MainActivity mainActivity);
 }

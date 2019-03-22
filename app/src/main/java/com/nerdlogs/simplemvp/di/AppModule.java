@@ -9,7 +9,6 @@ import dagger.android.ContributesAndroidInjector;
 
 @Module
 abstract class AppModule {
-
     @ContributesAndroidInjector(modules = {MainModule.class, MainViewModule.class})
     abstract MainActivity bindMainActivity();
 }

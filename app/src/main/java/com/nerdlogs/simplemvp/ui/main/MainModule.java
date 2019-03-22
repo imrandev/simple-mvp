@@ -1,13 +1,10 @@
 package com.nerdlogs.simplemvp.ui.main;
 
+import dagger.Binds;
 import dagger.Module;
-import dagger.Provides;
 
 @Module
-public class MainModule {
-
-    @Provides
-    MainContract.Presenter provideMainPresenter(MainContract.View mainView){
-        return new MainPresenter(mainView);
-    }
+public abstract class MainModule {
+    @Binds
+    abstract MainContract.Presenter bindMainPresenter(MainPresenter mainPresenter);
 }
