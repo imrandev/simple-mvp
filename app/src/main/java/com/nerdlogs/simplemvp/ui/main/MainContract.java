@@ -5,8 +5,8 @@ import com.nerdlogs.simplemvp.ui.base.BasePresenter;
 import com.nerdlogs.simplemvp.ui.base.BaseView;
 
 public class MainContract {
+
     public interface View extends BaseView<Presenter> {
-        void showMessage(String message);
         UserAdapter getAdapterView();
     }
 

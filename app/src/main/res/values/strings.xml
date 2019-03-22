@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Simple MVP</string>
+    <string name="app_name">MVP With Dagger2</string>
     <string name="add_user_name_msg">Add User Name</string>
     <string name="add_btn_msg">ADD NAME</string>
     <string name="empty_user_list_msg">Empty User List</string>

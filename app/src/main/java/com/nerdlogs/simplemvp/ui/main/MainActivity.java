@@ -8,15 +8,21 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.nerdlogs.simplemvp.listener.OnLongPressListener;
-import com.nerdlogs.simplemvp.ui.BaseActivity;
+import com.nerdlogs.simplemvp.ui.base.BaseActivity;
 import com.nerdlogs.simplemvp.R;
 import com.nerdlogs.simplemvp.adapter.UserAdapter;
 
 import java.util.ArrayList;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+import javax.inject.Inject;
 
-    private MainPresenter mMainPresenter;
+import dagger.android.AndroidInjection;
+
+public class MainActivity extends BaseActivity implements MainContract.View, View.OnClickListener {
+
+    @Inject
+    MainContract.Presenter mMainPresenter;
+
     private EditText editUserName;
     private UserAdapter userAdapter;
 
@@ -29,7 +35,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mMainPresenter = new MainPresenter(this);
+        AndroidInjection.inject(this);
+
         userAdapter = new UserAdapter(new ArrayList<String>(2));
         userAdapter.setOnLongPressListener(onLongPressListener);
 
@@ -64,4 +71,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             mMainPresenter.deleteUser(user);
         }
     };
+
+    @Override
+    public void showMessage(String message) {
+        super.showMessage(message);
+    }
+
+    @Override
+    public void setPresenter(MainContract.Presenter presenter) {
+        setBasePresenter(presenter);
+    }
 }
